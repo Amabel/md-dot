@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
-import './style.css'
+import './style.scss'
+import '../node_modules/github-markdown-css/github-markdown.css'
 import App from './App.vue'
 import { VueShowdownPlugin } from 'vue-showdown'
 
