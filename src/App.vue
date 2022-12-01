@@ -2,8 +2,6 @@
   <div class="body" :class="{ dark: theme === 'dark' }">
     <TopNav />
     <Editor />
-
-    <button @click="toggle">123123</button>
   </div>
 </template>
 
@@ -15,10 +13,6 @@ import { useAppStore } from './stores'
 
 const appStore = useAppStore()
 const { theme } = storeToRefs(appStore)
-
-const toggle = () => {
-  appStore.theme = theme.value === 'dark' ? 'light' : 'dark'
-}
 </script>
 
 <style>

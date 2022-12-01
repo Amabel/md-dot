@@ -38,7 +38,7 @@ const toggleTheme = () => {
   align-items: center;
   padding: 12px 24px;
   border-bottom: 1px solid var(--border);
-  transition: border ease 0.3s;
+  transition: border ease 0.5s;
 
   .right {
     display: flex;
