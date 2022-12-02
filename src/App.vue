@@ -19,7 +19,7 @@ const { theme } = storeToRefs(appStore)
 .body {
   height: 100vh;
   color: var(--text-normal);
-  background-color: var(--top-nav-bg);
+  background-color: var(--bg);
   transition: color 0.5s, background-color 0.5s;
 }
 </style>

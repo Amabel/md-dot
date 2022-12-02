@@ -35,7 +35,7 @@ import { VueShowdown } from 'vue-showdown'
     transition: border-color 0.5s, background-color 0.5s;
 
     &:focus {
-      background-color: var(--top-nav-bg);
+      background-color: var(--bg);
       box-shadow: 0 0 5px 2px var(--accent);
     }
   }
