@@ -1,13 +1,13 @@
 <template>
-  <div class="wrapper w-full h-12">
+  <div class="wrapper">
     <div class="left">
       <div class="logo">Type Anything</div>
     </div>
 
     <div class="right">
-      <button>
+      <button class="btn-theme-toggle">
         <img
-          class="theme-toggle"
+          class="theme-toggle-icon"
           :src="
             theme === 'dark' ? '/src/assets/icons/theme-toggle-dark.svg' : '/src/assets/icons/theme-toggle-light.svg'
           "
@@ -37,6 +37,7 @@ const toggleTheme = () => {
   justify-content: space-between;
   align-items: center;
   padding: 12px 24px;
+  width: 100vw;
   border-bottom: 1px solid var(--border);
   transition: border ease 0.5s;
 
@@ -44,9 +45,16 @@ const toggleTheme = () => {
     display: flex;
     align-items: center;
 
-    .theme-toggle {
-      width: 20px;
-      height: 20px;
+    .btn-theme-toggle {
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+      border-width: 0;
+
+      .theme-toggle-icon {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 }

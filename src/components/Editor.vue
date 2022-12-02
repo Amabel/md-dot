@@ -1,17 +1,15 @@
 <template>
   <div class="wrapper flex flex-row">
-    <textarea class="textarea" name="textarea" id="" cols="30" rows="10"></textarea>
-    <VueShowdown
-      class="markdown-body"
-      markdown="开启下面的 `vueTemplate` Prop，启用 Vue 模板解析！"
-      flavor="github"
-      :options="{ emoji: true }"
-    />
+    <textarea class="textarea" name="textarea" id="" v-model="text"></textarea>
+    <VueShowdown class="markdown-body" :markdown="text" flavor="github" :options="{ emoji: true }" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { VueShowdown } from 'vue-showdown'
+
+const text = ref('123')
 </script>
 
 <style scoped lang="scss">
@@ -30,6 +28,7 @@ import { VueShowdown } from 'vue-showdown'
     border-radius: 4px;
     border: 1px solid var(--border);
     background-color: var(--textarea-bg);
+    color: inherit;
     resize: none;
     outline: none;
     transition: border-color 0.5s, background-color 0.5s;
@@ -38,6 +37,13 @@ import { VueShowdown } from 'vue-showdown'
       background-color: var(--bg);
       box-shadow: 0 0 5px 2px var(--accent);
     }
+  }
+
+  .markdown-body {
+    padding: 8px 12px;
+    width: 48%;
+    border-radius: 4px;
+    border: 1px solid var(--border);
   }
 }
 </style>
