@@ -24,6 +24,7 @@ const text = ref('123')
     margin-right: 24px;
     padding: 8px 12px;
     min-width: 45%;
+    height: 100%;
     border-radius: 4px;
     border: 1px solid var(--border);
     background-color: var(--textarea-bg);
@@ -42,7 +43,7 @@ const text = ref('123')
     padding: 8px 12px;
     width: 48%;
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     border-radius: 4px;
     border: 1px solid var(--border);
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;

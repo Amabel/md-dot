@@ -21,8 +21,6 @@ const { theme } = storeToRefs(appStore)
 
 <style scoped lang="scss">
 .body {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   color: var(--text-normal);
   background-color: var(--bg);
@@ -31,8 +29,9 @@ const { theme } = storeToRefs(appStore)
   .nav {
     height: 54px;
   }
+
   .content {
-    flex: 1;
+    height: calc(100% - 54px);
   }
 }
 </style>
