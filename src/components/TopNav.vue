@@ -20,14 +20,27 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { watchEffect } from 'vue'
 import { useAppStore } from '../stores'
 
 const appStore = useAppStore()
 const { theme } = storeToRefs(appStore)
 
+const toggleHtmlClass = () => {
+  if (theme.value === 'dark') {
+    document.querySelector('html')?.classList.add('dark')
+  } else {
+    document.querySelector('html')?.classList.remove('dark')
+  }
+}
+
 const toggleTheme = () => {
   appStore.theme = theme.value === 'dark' ? 'light' : 'dark'
 }
+
+watchEffect(() => {
+  toggleHtmlClass()
+})
 </script>
 
 <style scoped lang="scss">
