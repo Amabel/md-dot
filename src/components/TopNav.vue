@@ -50,6 +50,7 @@ const toggleTheme = () => {
       padding: 0;
       background-color: transparent;
       border-width: 0;
+      cursor: pointer;
 
       .theme-toggle-icon {
         width: 20px;
