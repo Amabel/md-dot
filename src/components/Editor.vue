@@ -15,9 +15,8 @@ const text = ref('123')
 <style scoped lang="scss">
 .wrapper {
   display: flex;
-  margin-top: 24px;
-  padding: 0 20px;
-  height: 85%;
+  padding: 24px 20px;
+  height: 100%;
   width: 100vw;
 
   .textarea {

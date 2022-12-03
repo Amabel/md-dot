@@ -1,7 +1,11 @@
 <template>
   <div class="body" :class="{ dark: theme === 'dark' }">
-    <TopNav />
-    <Editor />
+    <div class="nav">
+      <TopNav />
+    </div>
+    <div class="content">
+      <Editor />
+    </div>
   </div>
 </template>
 
@@ -15,11 +19,20 @@ const appStore = useAppStore()
 const { theme } = storeToRefs(appStore)
 </script>
 
-<style>
+<style scoped lang="scss">
 .body {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   color: var(--text-normal);
   background-color: var(--bg);
   transition: color 0.5s, background-color 0.5s;
+
+  .nav {
+    height: 54px;
+  }
+  .content {
+    flex: 1;
+  }
 }
 </style>

@@ -35,8 +35,9 @@ const toggleTheme = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
+  padding: 0 24px;
   width: 100vw;
+  height: 100%;
   border-bottom: 1px solid var(--border);
   transition: border ease 0.5s;
 
