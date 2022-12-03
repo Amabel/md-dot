@@ -1,7 +1,10 @@
 <template>
   <div class="wrapper">
     <div class="left">
-      <div class="logo">Type Anything</div>
+      <div class="logo">
+        <img src="../assets/logo.png" alt="" />
+      </div>
+      <div class="logo-text">Type Anything</div>
     </div>
 
     <div class="right">
@@ -53,6 +56,29 @@ watchEffect(() => {
   height: 100%;
   border-bottom: 1px solid var(--border);
   transition: border ease 0.5s;
+
+  .left {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      width: 32px;
+      height: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .logo-text {
+      margin-left: 12px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
 
   .right {
     display: flex;
