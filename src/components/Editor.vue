@@ -44,6 +44,7 @@ const text = ref('123')
     width: 48%;
     border-radius: 4px;
     border: 1px solid var(--border);
+    transition: border-color 0.5s, background-color 0.5s, color 0.5s;
   }
 }
 </style>
