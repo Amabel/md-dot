@@ -5,14 +5,13 @@
     </div>
 
     <div class="right">
-      <button class="btn-theme-toggle">
+      <button class="btn-theme-toggle" @click="toggleTheme">
         <img
           class="theme-toggle-icon"
           :src="
             theme === 'dark' ? '/src/assets/icons/theme-toggle-dark.svg' : '/src/assets/icons/theme-toggle-light.svg'
           "
           alt=""
-          @click="toggleTheme"
         />
       </button>
     </div>
@@ -46,6 +45,8 @@ const toggleTheme = () => {
     align-items: center;
 
     .btn-theme-toggle {
+      display: flex;
+      align-items: center;
       margin: 0;
       padding: 0;
       background-color: transparent;
