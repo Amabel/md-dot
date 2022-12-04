@@ -1,10 +1,3 @@
-import { defineStore } from 'pinia'
-import { useStorage } from '@vueuse/core'
+import { useAppStore } from './app-store'
 
-export const useAppStore = defineStore('app', {
-  state: () => ({
-    theme: useStorage('theme', 'light' as Theme),
-  }),
-})
-
-type Theme = 'dark' | 'light'
+export { useAppStore }
