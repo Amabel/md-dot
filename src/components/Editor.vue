@@ -1,15 +1,18 @@
 <template>
   <div class="wrapper flex flex-row">
-    <textarea class="textarea" name="textarea" id="" v-model="text"></textarea>
-    <VueShowdown class="markdown-body" :markdown="text" flavor="github" :options="{ emoji: true }" />
+    <textarea class="textarea" name="textarea" id="" v-model="markdown"></textarea>
+    <VueShowdown class="markdown-body" :markdown="markdown" flavor="github" :options="{ emoji: true }" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { ref } from 'vue'
 import { VueShowdown } from 'vue-showdown'
+import { useMarkdownStore } from '../stores'
 
-const text = ref('123')
+const markdownStore = useMarkdownStore()
+const { markdown } = storeToRefs(markdownStore)
 </script>
 
 <style scoped lang="scss">

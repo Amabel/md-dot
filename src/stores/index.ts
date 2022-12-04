@@ -1,3 +1,4 @@
 import { useAppStore } from './app-store'
+import { useMarkdownStore } from './markdown-store'
 
-export { useAppStore }
+export { useAppStore, useMarkdownStore }
