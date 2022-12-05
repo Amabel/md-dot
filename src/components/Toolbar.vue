@@ -60,12 +60,10 @@ const updateIconUrls = () => {
 }
 
 const toggleFullscreen = () => {
-  console.log({ fullscreen: appStore.fullScreen })
   appStore.fullScreen = !appStore.fullScreen
 }
 
 const togglePreview = () => {
-  console.log({ preview: appStore.previewMarkdown })
   appStore.previewMarkdown = !appStore.previewMarkdown
 }
 
