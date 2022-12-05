@@ -74,7 +74,7 @@ watchEffect(() => {
   .actions {
     display: flex;
     padding: 4px;
-    border: 1px solid var(--button-border);
+    border: 1px solid var(--border);
     border-radius: 4px;
     transition: border ease 0.5s;
 
@@ -99,7 +99,7 @@ watchEffect(() => {
     .divider {
       margin: 0 4px;
       width: 1px;
-      background-color: var(--button-border);
+      background-color: var(--border);
       transition: background-color ease 0.5s;
     }
   }
