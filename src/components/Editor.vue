@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper flex flex-row">
+  <div class="editor-wrapper">
     <textarea class="textarea" name="textarea" id="" v-model="markdown"></textarea>
     <VueShowdown class="markdown-body" :markdown="markdown" flavor="github" :options="{ emoji: true }" />
   </div>
@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
 import { VueShowdown } from 'vue-showdown'
 import { useMarkdownStore } from '../stores'
 
@@ -16,17 +15,14 @@ const { markdown } = storeToRefs(markdownStore)
 </script>
 
 <style scoped lang="scss">
-.wrapper {
+.editor-wrapper {
   display: flex;
-  padding: 24px 20px;
   height: 100%;
-  width: 100vw;
 
   .textarea {
     flex: 1;
     margin-right: 24px;
     padding: 8px 12px;
-    min-width: 45%;
     height: 100%;
     border-radius: 4px;
     border: 1px solid var(--border);

@@ -4,7 +4,13 @@
       <TopNav />
     </div>
     <div class="content">
-      <Editor />
+      <div class="toolbar-container">
+        <Toolbar />
+      </div>
+
+      <div class="editor-container">
+        <Editor />
+      </div>
     </div>
   </div>
 </template>
@@ -12,6 +18,7 @@
 <script setup lang="ts">
 import TopNav from './components/TopNav.vue'
 import Editor from './components/Editor.vue'
+import Toolbar from './components/Toolbar.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from './stores'
 
@@ -21,6 +28,8 @@ const { theme } = storeToRefs(appStore)
 
 <style scoped lang="scss">
 .body {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   color: var(--text-normal);
   background-color: var(--bg);
@@ -31,7 +40,20 @@ const { theme } = storeToRefs(appStore)
   }
 
   .content {
-    height: calc(100% - 54px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px 20px;
+    overflow: hidden;
+
+    .toolbar-container {
+      margin-bottom: 12px;
+    }
+
+    .editor-container {
+      flex: 1;
+      overflow: hidden;
+    }
   }
 }
 </style>
