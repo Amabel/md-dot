@@ -1,17 +1,26 @@
 <template>
   <div class="editor-wrapper">
     <textarea class="textarea" name="textarea" id="" v-model="markdown"></textarea>
-    <VueShowdown class="markdown-body" :markdown="markdown" flavor="github" :options="{ emoji: true }" />
+    <VueShowdown
+      v-if="previewMarkdown"
+      class="markdown-body"
+      :markdown="markdown"
+      flavor="github"
+      :options="{ emoji: true }"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { VueShowdown } from 'vue-showdown'
-import { useMarkdownStore } from '../stores'
+import { useAppStore, useMarkdownStore } from '../stores'
 
 const markdownStore = useMarkdownStore()
 const { markdown } = storeToRefs(markdownStore)
+
+const appStore = useAppStore()
+const { previewMarkdown } = storeToRefs(appStore)
 </script>
 
 <style scoped lang="scss">
@@ -22,7 +31,6 @@ const { markdown } = storeToRefs(markdownStore)
 
   .textarea {
     flex: 1;
-    margin-right: 24px;
     padding: 8px 12px;
     height: 100%;
     border-radius: 4px;
@@ -40,6 +48,7 @@ const { markdown } = storeToRefs(markdownStore)
   }
 
   .markdown-body {
+    margin-left: 24px;
     padding: 8px 12px;
     width: 48%;
     height: 100%;
