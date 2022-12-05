@@ -43,11 +43,11 @@ const { theme } = storeToRefs(appStore)
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 24px 20px;
+    padding: 24px 20px 16px 12px;
     overflow: hidden;
 
     .toolbar-container {
-      margin-bottom: 12px;
+      margin-bottom: 4px;
     }
 
     .editor-container {

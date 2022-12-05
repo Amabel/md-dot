@@ -18,6 +18,7 @@ const { markdown } = storeToRefs(markdownStore)
 .editor-wrapper {
   display: flex;
   height: 100%;
+  padding: 8px 0 8px 8px;
 
   .textarea {
     flex: 1;
