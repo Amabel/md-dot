@@ -4,7 +4,7 @@
       <div class="logo">
         <img src="../assets/logo.png" alt="" />
       </div>
-      <div class="logo-text">Type Anything</div>
+      <div class="logo-text">md.</div>
     </div>
 
     <div class="right">
@@ -76,7 +76,7 @@ watchEffect(() => {
     .logo-text {
       margin-left: 12px;
       font-size: 20px;
-      font-weight: bold;
+      font-family: 'Permanent Marker';
     }
   }
 
