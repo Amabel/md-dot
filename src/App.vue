@@ -43,7 +43,7 @@ const { theme } = storeToRefs(appStore)
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 24px 20px 16px 12px;
+    padding: 16px 20px 16px 12px;
     overflow: hidden;
 
     .toolbar-container {
