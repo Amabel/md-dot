@@ -74,9 +74,10 @@ watchEffect(() => {
     }
 
     .logo-text {
-      margin-left: 12px;
+      margin-left: 16px;
       font-size: 20px;
       font-family: 'Permanent Marker';
+      font-size: 28px;
     }
   }
 
