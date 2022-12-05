@@ -18,39 +18,33 @@
 import { ref, watchEffect } from 'vue'
 import { useAppStore } from '../stores'
 
-const fullscreenIconUrl = ref('/src/assets/icons/fullscreen-light.svg')
-const previewIconUrl = ref('/src/assets/icons/preview-on-dark.svg')
+const FULLSCREEN_LIGHT_URL = '/src/assets/icons/fullscreen-light.svg'
+const FULLSCREEN_DARK_URL = '/src/assets/icons/fullscreen-dark.svg'
+const EXIT_FULLSCREEN_LIGHT_URL = '/src/assets/icons/exit-fullscreen-light.svg'
+const EXIT_FULLSCREEN_DARK_URL = '/src/assets/icons/exit-fullscreen-dark.svg'
+
+const PREVIEW_ON_LIGHT_URL = '/src/assets/icons/preview-on-light.svg'
+const PREVIEW_ON_DARK_URL = '/src/assets/icons/preview-on-dark.svg'
+const PREVIEW_OFF_LIGHT_URL = '/src/assets/icons/preview-off-light.svg'
+const PREVIEW_OFF_DARK_URL = '/src/assets/icons/preview-off-dark.svg'
+
+const fullscreenIconUrl = ref(FULLSCREEN_LIGHT_URL)
+const previewIconUrl = ref(PREVIEW_ON_LIGHT_URL)
 const appStore = useAppStore()
 
 const updateFullscreenIconUrl = () => {
   if (appStore.theme === 'dark') {
-    if (appStore.fullScreen) {
-      fullscreenIconUrl.value = '/src/assets/icons/exit-fullscreen-dark.svg'
-    } else {
-      fullscreenIconUrl.value = '/src/assets/icons/fullscreen-dark.svg'
-    }
+    fullscreenIconUrl.value = appStore.fullScreen ? EXIT_FULLSCREEN_DARK_URL : FULLSCREEN_DARK_URL
   } else {
-    if (appStore.fullScreen) {
-      fullscreenIconUrl.value = '/src/assets/icons/exit-fullscreen-light.svg'
-    } else {
-      fullscreenIconUrl.value = '/src/assets/icons/fullscreen-light.svg'
-    }
+    fullscreenIconUrl.value = appStore.fullScreen ? EXIT_FULLSCREEN_LIGHT_URL : FULLSCREEN_LIGHT_URL
   }
 }
 
 const updatePreviewIconUrl = () => {
   if (appStore.theme === 'dark') {
-    if (appStore.previewMarkdown) {
-      previewIconUrl.value = '/src/assets/icons/preview-on-dark.svg'
-    } else {
-      previewIconUrl.value = '/src/assets/icons/preview-off-dark.svg'
-    }
+    previewIconUrl.value = appStore.previewMarkdown ? PREVIEW_ON_DARK_URL : PREVIEW_OFF_DARK_URL
   } else {
-    if (appStore.previewMarkdown) {
-      previewIconUrl.value = '/src/assets/icons/preview-on-light.svg'
-    } else {
-      previewIconUrl.value = '/src/assets/icons/preview-off-light.svg'
-    }
+    previewIconUrl.value = appStore.previewMarkdown ? PREVIEW_ON_LIGHT_URL : PREVIEW_OFF_LIGHT_URL
   }
 }
 
