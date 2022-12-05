@@ -10,3 +10,13 @@ html {
 * {
   box-sizing: border-box;
 }
+
+.button-plain {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+  cursor: pointer;
+}

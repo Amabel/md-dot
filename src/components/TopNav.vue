@@ -8,7 +8,7 @@
     </div>
 
     <div class="right">
-      <button class="btn-theme-toggle" @click="toggleTheme">
+      <button class="button-plain" @click="toggleTheme">
         <img
           class="theme-toggle-icon"
           :src="
@@ -84,15 +84,7 @@ watchEffect(() => {
     display: flex;
     align-items: center;
 
-    .btn-theme-toggle {
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-      border-width: 0;
-      cursor: pointer;
-
+    .button-plain {
       .theme-toggle-icon {
         width: 20px;
         height: 20px;
