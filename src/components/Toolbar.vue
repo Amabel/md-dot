@@ -98,7 +98,7 @@ watchEffect(() => {
 
     .divider {
       margin: 0 4px;
-      width: 2px;
+      width: 1px;
       background-color: var(--button-border);
       transition: background-color ease 0.5s;
     }
