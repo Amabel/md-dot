@@ -29,13 +29,14 @@ const { current } = useMagicKeys()
 
 const shiftCtrlPIsPressed = () => current.has('shift') && current.has('control') && current.has('k')
 const shiftCtrlFIsPressed = () => current.has('shift') && current.has('control') && current.has('l')
+const ecsIsPressed = () => current.has('escape')
 const togglePreviewMarkdown = () => (previewMarkdown.value = !previewMarkdown.value)
 const toggleFullscreen = () => (fullScreen.value = !fullScreen.value)
 
 // NOTE: There is a bug with Meta(Cmd) key detection, thus use control for both Mac and Windows OS.
 // See https://github.com/vueuse/vueuse/issues/2298
 whenever(
-  () => shiftCtrlPIsPressed() || shiftCtrlFIsPressed(),
+  () => shiftCtrlPIsPressed() || shiftCtrlFIsPressed() || ecsIsPressed(),
   () => {
     if (shiftCtrlPIsPressed()) {
       togglePreviewMarkdown()
@@ -43,6 +44,12 @@ whenever(
 
     if (shiftCtrlFIsPressed()) {
       toggleFullscreen()
+    }
+
+    if (ecsIsPressed()) {
+      if (fullScreen.value) {
+        toggleFullscreen()
+      }
     }
   },
 )
