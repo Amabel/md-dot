@@ -1,9 +1,16 @@
 <template>
-  <div class="editor-wrapper">
-    <textarea class="textarea" name="textarea" id="" v-model="markdown"></textarea>
+  <div class="editor-wrapper" :class="{ 'full-screen': fullScreen }">
+    <textarea
+      class="textarea"
+      :class="{ 'full-screen': fullScreen }"
+      name="textarea"
+      id=""
+      v-model="markdown"
+    ></textarea>
     <VueShowdown
       v-if="previewMarkdown"
       class="markdown-body"
+      :class="{ 'full-screen': fullScreen }"
       :markdown="markdown"
       flavor="github"
       :options="{ emoji: true }"
@@ -20,7 +27,7 @@ const markdownStore = useMarkdownStore()
 const { markdown } = storeToRefs(markdownStore)
 
 const appStore = useAppStore()
-const { previewMarkdown } = storeToRefs(appStore)
+const { previewMarkdown, fullScreen } = storeToRefs(appStore)
 </script>
 
 <style scoped lang="scss">
@@ -28,6 +35,10 @@ const { previewMarkdown } = storeToRefs(appStore)
   display: flex;
   height: 100%;
   padding: 8px 0 8px 8px;
+
+  &.full-screen {
+    padding: 0;
+  }
 
   .textarea {
     flex: 1;
@@ -45,6 +56,15 @@ const { previewMarkdown } = storeToRefs(appStore)
       background-color: var(--bg);
       box-shadow: 0 0 5px 2px var(--accent);
     }
+
+    &.full-screen {
+      border: 0;
+      border-radius: 0;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
   }
 
   .markdown-body {
@@ -56,6 +76,13 @@ const { previewMarkdown } = storeToRefs(appStore)
     border-radius: 4px;
     border: 1px solid var(--border);
     transition: border-color 0.5s, background-color 0.5s, color 0.5s;
+
+    &.full-screen {
+      margin-left: 0;
+      border-radius: 0;
+      border: 0;
+      border-left: 1px solid var(--border);
+    }
   }
 }
 </style>

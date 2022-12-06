@@ -3,7 +3,7 @@
     <div class="nav" :class="{ 'full-screen': fullScreen }">
       <TopNav />
     </div>
-    <div class="content">
+    <div class="content" :class="{ 'full-screen': fullScreen }">
       <div class="toolbar-container">
         <Toolbar />
       </div>
@@ -72,6 +72,16 @@ whenever(
     flex: 1;
     padding: 16px 20px 16px 12px;
     overflow: hidden;
+
+    &.full-screen {
+      padding: 0;
+
+      .toolbar-container {
+        margin-bottom: 0;
+        height: 0;
+        overflow: hidden;
+      }
+    }
 
     .toolbar-container {
       margin-bottom: 4px;
