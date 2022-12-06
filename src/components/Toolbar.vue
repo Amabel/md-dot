@@ -1,13 +1,29 @@
 <template>
   <div class="toolbar-wrapper">
     <div class="actions">
-      <button class="button-plain" @click="togglePreview">
+      <button
+        class="button-plain"
+        @click="togglePreview"
+        v-tippy="{
+          content: 'Toggle Preview <span class=tooltip><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>K</kbd></span>',
+          allowHTML: true,
+          delay: [300, null],
+        }"
+      >
         <img class="preview-icon" :src="previewIconUrl" alt="" />
       </button>
 
       <div class="divider"></div>
 
-      <button class="button-plain" @click="toggleFullscreen">
+      <button
+        class="button-plain"
+        @click="toggleFullscreen"
+        v-tippy="{
+          content: 'Toggle Fullscreen <span class=tooltip><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>L</kbd></span>',
+          allowHTML: true,
+          delay: [300, null],
+        }"
+      >
         <img class="fullscreen-icon" :src="fullscreenIconUrl" alt="" />
       </button>
     </div>

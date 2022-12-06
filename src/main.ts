@@ -3,6 +3,8 @@ import { createPinia } from 'pinia'
 import './style.scss'
 import App from './App.vue'
 import { VueShowdownPlugin } from 'vue-showdown'
+import VueTippy from 'vue-tippy'
+import 'tippy.js/dist/tippy.css'
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -16,5 +18,6 @@ app
     },
   })
   .use(pinia)
+  .use(VueTippy)
 
 app.mount('#app')
