@@ -110,6 +110,7 @@ watchEffect(() => {
 
         .cls-1 {
           fill: var(--text-normal);
+          transition: fill 0.5s;
         }
       }
     }
