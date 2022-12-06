@@ -21,9 +21,18 @@ import Editor from './components/Editor.vue'
 import Toolbar from './components/Toolbar.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from './stores'
+import { useMagicKeys, whenever } from '@vueuse/core'
 
 const appStore = useAppStore()
-const { theme } = storeToRefs(appStore)
+const { theme, previewMarkdown } = storeToRefs(appStore)
+const { current } = useMagicKeys()
+
+// NOTE: There is a bug with Meta(Cmd) key detection, thus use control for both Mac and Windows OS.
+// See https://github.com/vueuse/vueuse/issues/2298
+whenever(
+  () => current.has('shift') && current.has('control') && current.has('k'),
+  () => (previewMarkdown.value = !previewMarkdown.value),
+)
 </script>
 
 <style scoped lang="scss">
