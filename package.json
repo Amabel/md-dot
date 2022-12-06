@@ -14,7 +14,8 @@
     "pinia": "^2.0.27",
     "ua-parser-js": "^1.0.32",
     "vue": "^3.2.41",
-    "vue-showdown": "^3.3.0"
+    "vue-showdown": "^3.3.0",
+    "vue-tippy": "^6.0.0-alpha.65"
   },
   "devDependencies": {
     "@types/ua-parser-js": "^0.7.36",
