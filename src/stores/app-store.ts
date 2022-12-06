@@ -6,7 +6,7 @@ type Theme = 'dark' | 'light'
 export const useAppStore = defineStore('app', {
   state: () => ({
     theme: useStorage('theme', 'light' as Theme),
-    fullScreen: false,
+    fullScreen: useStorage('fullScreen', false),
     previewMarkdown: useStorage('previewMarkdown', true),
   }),
 })
