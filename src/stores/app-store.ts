@@ -7,6 +7,6 @@ export const useAppStore = defineStore('app', {
   state: () => ({
     theme: useStorage('theme', 'light' as Theme),
     fullScreen: false,
-    previewMarkdown: true,
+    previewMarkdown: useStorage('previewMarkdown', true),
   }),
 })
