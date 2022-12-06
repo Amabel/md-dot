@@ -34,7 +34,7 @@ const { previewMarkdown, fullScreen } = storeToRefs(appStore)
 .editor-wrapper {
   display: flex;
   height: 100%;
-  padding: 8px 0 8px 8px;
+  padding: 8px;
 
   &.full-screen {
     padding: 0;

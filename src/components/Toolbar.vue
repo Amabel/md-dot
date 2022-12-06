@@ -70,6 +70,7 @@ watchEffect(() => {
 .toolbar-wrapper {
   display: flex;
   justify-content: flex-end;
+  margin-right: 8px;
 
   .actions {
     display: flex;
