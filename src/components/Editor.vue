@@ -58,7 +58,6 @@ const { previewMarkdown, fullScreen } = storeToRefs(appStore)
     }
 
     &.full-screen {
-      border: 0;
       border-radius: 0;
 
       &:focus {
@@ -80,7 +79,6 @@ const { previewMarkdown, fullScreen } = storeToRefs(appStore)
     &.full-screen {
       margin-left: 0;
       border-radius: 0;
-      border: 0;
       border-left: 1px solid var(--border);
     }
   }
