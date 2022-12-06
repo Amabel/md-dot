@@ -70,7 +70,7 @@ whenever(
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 16px 12px;
+    padding: 12px;
     overflow: hidden;
 
     &.full-screen {
