@@ -30,7 +30,7 @@ const { current } = useMagicKeys()
 // NOTE: There is a bug with Meta(Cmd) key detection, thus use control for both Mac and Windows OS.
 // See https://github.com/vueuse/vueuse/issues/2298
 whenever(
-  () => current.has('shift') && current.has('control') && current.has('k'),
+  () => current.has('shift') && current.has('control') && current.has('p'),
   () => (previewMarkdown.value = !previewMarkdown.value),
 )
 </script>
