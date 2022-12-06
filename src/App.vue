@@ -1,6 +1,6 @@
 <template>
   <div class="body" :class="{ dark: theme === 'dark' }">
-    <div class="nav">
+    <div class="nav" :class="{ 'full-screen': fullScreen }">
       <TopNav />
     </div>
     <div class="content">
@@ -24,14 +24,27 @@ import { useAppStore } from './stores'
 import { useMagicKeys, whenever } from '@vueuse/core'
 
 const appStore = useAppStore()
-const { theme, previewMarkdown } = storeToRefs(appStore)
+const { theme, previewMarkdown, fullScreen } = storeToRefs(appStore)
 const { current } = useMagicKeys()
+
+const shiftCtrlPIsPressed = () => current.has('shift') && current.has('control') && current.has('k')
+const shiftCtrlFIsPressed = () => current.has('shift') && current.has('control') && current.has('l')
+const togglePreviewMarkdown = () => (previewMarkdown.value = !previewMarkdown.value)
+const toggleFullscreen = () => (fullScreen.value = !fullScreen.value)
 
 // NOTE: There is a bug with Meta(Cmd) key detection, thus use control for both Mac and Windows OS.
 // See https://github.com/vueuse/vueuse/issues/2298
 whenever(
-  () => current.has('shift') && current.has('control') && current.has('p'),
-  () => (previewMarkdown.value = !previewMarkdown.value),
+  () => shiftCtrlPIsPressed() || shiftCtrlFIsPressed(),
+  () => {
+    if (shiftCtrlPIsPressed()) {
+      togglePreviewMarkdown()
+    }
+
+    if (shiftCtrlFIsPressed()) {
+      toggleFullscreen()
+    }
+  },
 )
 </script>
 
@@ -46,6 +59,11 @@ whenever(
 
   .nav {
     height: 54px;
+
+    &.full-screen {
+      height: 0;
+      overflow: hidden;
+    }
   }
 
   .content {
