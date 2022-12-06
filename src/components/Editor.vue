@@ -50,7 +50,7 @@ const { previewMarkdown, fullScreen } = storeToRefs(appStore)
     color: inherit;
     resize: none;
     outline: none;
-    transition: border-color 0.5s, background-color 0.5s;
+    transition: border-color 0.5s, background-color 0.5s, box-shadow 0.5s;
 
     &:focus {
       background-color: var(--bg);
