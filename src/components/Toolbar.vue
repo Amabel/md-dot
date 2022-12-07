@@ -5,9 +5,10 @@
         class="button-plain"
         @click="togglePreview"
         v-tippy="{
-          content: 'Toggle Preview <span class=tooltip><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>K</kbd></span>',
+          content: 'Toggle Preview <span class=tooltip><kbd>Shift</kbd> <kbd>Ctrl</kbd> + <kbd>K</kbd></span>',
           allowHTML: true,
           delay: [300, null],
+          placement: 'bottom',
         }"
       >
         <img class="preview-icon" :src="previewIconUrl" alt="" />
@@ -19,9 +20,10 @@
         class="button-plain"
         @click="toggleFullscreen"
         v-tippy="{
-          content: 'Toggle Fullscreen <span class=tooltip><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>L</kbd></span>',
+          content: 'Toggle Fullscreen <span class=tooltip><kbd>Shift</kbd> <kbd>Ctrl</kbd> + <kbd>L</kbd></span>',
           allowHTML: true,
           delay: [300, null],
+          placement: 'bottom',
         }"
       >
         <img class="fullscreen-icon" :src="fullscreenIconUrl" alt="" />

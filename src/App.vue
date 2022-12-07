@@ -1,5 +1,5 @@
 <template>
-  <div class="body" :class="{ dark: theme === 'dark' }">
+  <div class="body">
     <div class="nav" :class="{ 'full-screen': fullScreen }">
       <TopNav />
     </div>
@@ -24,7 +24,7 @@ import { useAppStore } from './stores'
 import { useMagicKeys, whenever } from '@vueuse/core'
 
 const appStore = useAppStore()
-const { theme, previewMarkdown, fullScreen } = storeToRefs(appStore)
+const { previewMarkdown, fullScreen } = storeToRefs(appStore)
 const { current } = useMagicKeys()
 
 const shiftCtrlPIsPressed = () => current.has('shift') && current.has('control') && current.has('k')
