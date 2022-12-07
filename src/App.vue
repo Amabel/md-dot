@@ -5,6 +5,7 @@
     </div>
     <div class="content" :class="{ 'full-screen': fullScreen }">
       <div class="toolbar-container">
+        <Badge />
         <Toolbar />
       </div>
 
@@ -19,6 +20,7 @@
 import TopNav from './components/TopNav.vue'
 import Editor from './components/Editor.vue'
 import Toolbar from './components/Toolbar.vue'
+import Badge from './components/Badge.vue'
 import { storeToRefs } from 'pinia'
 import { useAppStore } from './stores'
 import { useMagicKeys, whenever } from '@vueuse/core'
@@ -91,7 +93,11 @@ whenever(
     }
 
     .toolbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 4px;
+      padding-left: 12px;
     }
 
     .editor-container {
