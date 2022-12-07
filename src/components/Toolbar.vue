@@ -14,9 +14,10 @@
         <img class="preview-icon" :src="previewIconUrl" alt="" />
       </button>
 
-      <div class="divider"></div>
+      <div v-if="!disableFullscreen" class="divider"></div>
 
       <button
+        v-if="!disableFullscreen"
         class="button-plain"
         @click="toggleFullscreen"
         v-tippy="{
@@ -33,8 +34,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useAppStore } from '../stores'
+import { isMobileOrTablet } from '../utils/os-utils'
 
 const FULLSCREEN_LIGHT_URL = '/src/assets/icons/fullscreen-light.svg'
 const FULLSCREEN_DARK_URL = '/src/assets/icons/fullscreen-dark.svg'
@@ -78,6 +80,8 @@ const toggleFullscreen = () => {
 const togglePreview = () => {
   appStore.previewMarkdown = !appStore.previewMarkdown
 }
+
+const disableFullscreen = computed<boolean>(() => isMobileOrTablet())
 
 watchEffect(() => {
   updateIconUrls()
