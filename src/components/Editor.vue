@@ -1,10 +1,10 @@
 <template>
   <div class="editor-wrapper" :class="{ 'full-screen': fullScreen }">
     <textarea
+      ref="textarea"
       class="textarea"
       :class="{ 'full-screen': fullScreen }"
       name="textarea"
-      id=""
       v-model="markdown"
     ></textarea>
     <VueShowdown
@@ -20,6 +20,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
+import { ref, watchEffect } from 'vue'
 import { VueShowdown } from 'vue-showdown'
 import { useAppStore, useMarkdownStore } from '../stores'
 
@@ -28,6 +29,13 @@ const { markdown } = storeToRefs(markdownStore)
 
 const appStore = useAppStore()
 const { previewMarkdown, fullScreen } = storeToRefs(appStore)
+const textarea = ref<InstanceType<typeof HTMLElement> | null>(null)
+
+watchEffect(() => {
+  if (fullScreen.value) {
+    textarea.value?.focus()
+  }
+})
 </script>
 
 <style scoped lang="scss">
