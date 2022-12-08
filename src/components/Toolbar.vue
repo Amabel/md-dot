@@ -38,33 +38,33 @@ import { computed, ref, watchEffect } from 'vue'
 import { useAppStore } from '../stores'
 import { isMobileOrTablet } from '../utils/os-utils'
 
-const FULLSCREEN_LIGHT_URL = '/src/assets/icons/fullscreen-light.svg'
-const FULLSCREEN_DARK_URL = '/src/assets/icons/fullscreen-dark.svg'
-const EXIT_FULLSCREEN_LIGHT_URL = '/src/assets/icons/exit-fullscreen-light.svg'
-const EXIT_FULLSCREEN_DARK_URL = '/src/assets/icons/exit-fullscreen-dark.svg'
+import fullscreenLightImage from '/src/assets/icons/fullscreen-light.svg'
+import fullscreenDarkImage from '/src/assets/icons/fullscreen-dark.svg'
+import exitFullscreenLightImage from '/src/assets/icons/exit-fullscreen-light.svg'
+import exitFullscreenDarkImage from '/src/assets/icons/exit-fullscreen-dark.svg'
 
-const PREVIEW_ON_LIGHT_URL = '/src/assets/icons/preview-on-light.svg'
-const PREVIEW_ON_DARK_URL = '/src/assets/icons/preview-on-dark.svg'
-const PREVIEW_OFF_LIGHT_URL = '/src/assets/icons/preview-off-light.svg'
-const PREVIEW_OFF_DARK_URL = '/src/assets/icons/preview-off-dark.svg'
+import previewOnLightImage from '/src/assets/icons/preview-on-light.svg'
+import previewOnDarkImage from '/src/assets/icons/preview-on-dark.svg'
+import previewOffLightImage from '/src/assets/icons/preview-off-light.svg'
+import previewOffDarkImage from '/src/assets/icons/preview-off-dark.svg'
 
-const fullscreenIconUrl = ref(FULLSCREEN_LIGHT_URL)
-const previewIconUrl = ref(PREVIEW_ON_LIGHT_URL)
+const fullscreenIconUrl = ref(fullscreenLightImage)
+const previewIconUrl = ref(previewOnLightImage)
 const appStore = useAppStore()
 
 const updateFullscreenIconUrl = () => {
   if (appStore.theme === 'dark') {
-    fullscreenIconUrl.value = appStore.fullScreen ? EXIT_FULLSCREEN_DARK_URL : FULLSCREEN_DARK_URL
+    fullscreenIconUrl.value = appStore.fullScreen ? exitFullscreenDarkImage : fullscreenDarkImage
   } else {
-    fullscreenIconUrl.value = appStore.fullScreen ? EXIT_FULLSCREEN_LIGHT_URL : FULLSCREEN_LIGHT_URL
+    fullscreenIconUrl.value = appStore.fullScreen ? exitFullscreenLightImage : fullscreenLightImage
   }
 }
 
 const updatePreviewIconUrl = () => {
   if (appStore.theme === 'dark') {
-    previewIconUrl.value = appStore.previewMarkdown ? PREVIEW_ON_DARK_URL : PREVIEW_OFF_DARK_URL
+    previewIconUrl.value = appStore.previewMarkdown ? previewOnDarkImage : previewOffDarkImage
   } else {
-    previewIconUrl.value = appStore.previewMarkdown ? PREVIEW_ON_LIGHT_URL : PREVIEW_OFF_LIGHT_URL
+    previewIconUrl.value = appStore.previewMarkdown ? previewOnLightImage : previewOffLightImage
   }
 }
 

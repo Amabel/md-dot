@@ -9,13 +9,7 @@
 
     <div class="right">
       <button class="button-plain" @click="toggleTheme">
-        <img
-          class="theme-toggle-icon"
-          :src="
-            theme === 'dark' ? '/src/assets/icons/theme-toggle-dark.svg' : '/src/assets/icons/theme-toggle-light.svg'
-          "
-          alt=""
-        />
+        <img class="theme-toggle-icon" :src="theme === 'dark' ? themeToggleDarkImage : themeToggleLightImage" alt="" />
       </button>
 
       <a class="button-plain btn-github" href="https://github.com/Amabel/md-dot" target="_blank">
@@ -34,6 +28,8 @@
 import { storeToRefs } from 'pinia'
 import { watchEffect } from 'vue'
 import { useAppStore } from '../stores'
+import themeToggleLightImage from '/src/assets/icons/theme-toggle-light.svg'
+import themeToggleDarkImage from '/src/assets/icons/theme-toggle-dark.svg'
 
 const appStore = useAppStore()
 const { theme } = storeToRefs(appStore)
