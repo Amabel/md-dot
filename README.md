@@ -8,6 +8,11 @@ Md Dot
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Famabel%2Fmd-dot%2Fbadge&style=flat" alt="Build Status">
+  <img src="https://img.shields.io/github/license/amabel/md-dot" alt="License">
+</p>
+
+<p align="center">
 Simple markdown editor.
 </p>
 
