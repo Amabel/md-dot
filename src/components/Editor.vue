@@ -20,9 +20,10 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { ref, watchEffect } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 import { VueShowdown } from 'vue-showdown'
 import { useAppStore, useMarkdownStore } from '../stores'
+import { defaultMarkdown } from '../constants'
 
 const markdownStore = useMarkdownStore()
 const { markdown } = storeToRefs(markdownStore)
@@ -34,6 +35,13 @@ const textarea = ref<InstanceType<typeof HTMLElement> | null>(null)
 watchEffect(() => {
   if (fullScreen.value) {
     textarea.value?.focus()
+  }
+})
+
+onMounted(() => {
+  textarea.value?.focus()
+  if (markdown.value === '') {
+    markdown.value = defaultMarkdown
   }
 })
 </script>
